@@ -27,6 +27,8 @@ type Config struct {
 
 // ServeHTTP determines if the request is for this plugin, and if all prerequisites are met.
 func (c *Config) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	log.Println(r.Method, r.URL.Path)
+
 	u := c.User
 	requestOrigin := r.Header.Get("Origin")
 
